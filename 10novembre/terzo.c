@@ -37,7 +37,9 @@ int main(void)
 {
     ListadiElementi lista = NULL;
     
-    addT(&lista , 5);
-    addT(&lista, 8);
+    addT(&lista , 2);
+    addT(&lista, 3);
+    addC(&lista, 1);
+    
 }
 
