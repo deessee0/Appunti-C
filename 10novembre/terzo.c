@@ -14,29 +14,30 @@ void addT(ListadiElementi* l, int x)
     *l = new;
 }
 
+void addC(ListadiElementi* l, int x)
+{
+    //elemento
+    ListadiElementi new = malloc(sizeof(ElementodiLista));
+    (*new).info = x;
+    (*new).next = NULL;
+    //link speciale alla lista vuota
+    if(*l == NULL) *l = new;
+    else 
+    {
+        //copia puntatore
+        ListadiElementi corr = *l;
+        //scorri
+        while(corr->next != NULL) corr = corr->next;
+        //aggiusta puntatori
+        corr->next = new;
+    }
+}
+
 int main(void) 
 {
-    ListadiElementi lista = NULL; //lista vuota
-    int N = 10;
-
-    //Primo elemento
-    ListadiElementi new = malloc(sizeof(ElementodiLista));
-    (*new).info = 1;
-    //link
-    lista = new;
-
-    for(int i = 2; i < N; i++)
-    {
-        //prossimo elemento allocato e linkato
-        (*new).next = malloc(sizeof(ElementodiLista));
-        //sposto puntatore
-        new = new->next;
-        //assegnazione valore
-        (*new).info = i;
-    }
-
-    new->next=NULL;
-
+    ListadiElementi lista = NULL;
+    
+    addT(&lista , 5);
     addT(&lista, 8);
 }
 
